@@ -19,8 +19,9 @@ sorted_scores = scoreboard.sort_by { |key, value| value }.reverse.flatten
 until sorted_scores[1] == 10
   one = shuffled_players.shift
   two = shuffled_players.shift
+  three = shuffled_players[0]
 
-  puts "\n\nNext game: #{one} vs. #{two}\n\n"
+  puts "\n\nNext game: #{one} vs. #{two} -- #{three} is on deck. \n\n"
   puts "Put '1' if #{one} won, put '2' if #{two} won."
   result = gets.chomp
 
@@ -52,3 +53,6 @@ until sorted_scores[1] == 10
   puts "First: #{sorted_scores[0]} with: #{sorted_scores[1]} wins"
   puts "Second: #{sorted_scores[2]} with: #{sorted_scores[3]} wins"
 end
+
+puts "FINAL SCORES"
+scoreboard.each{|k,v| p "#{k}: #{v}" }
